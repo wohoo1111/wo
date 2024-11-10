@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lun</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* 設定頁面背景圖片 */
+        body {
+            background-image: url(https://i.pinimg.com/564x/13/20/e7/1320e73836aa106f0a626d4924ac2d25.jpg); /* 替換為你的背景圖片路徑 */
+            background-size: cover; /* 背景圖片覆蓋整個頁面 */
+            background-position: center; /* 背景圖片居中 */
+            background-repeat: no-repeat; /* 不重複圖片 */
+            background-attachment: fixed; /* 背景固定，讓它不會隨滾動而移動 */
+            margin: 0;
+            font-family: Arial, sans-serif; /* 設定全頁字體為 Arial */
+            height: 100%; /* 確保頁面高度為100% */
+            color: white; /* 設定整體文字顏色為白色 */
+        }
+
+        /* 標題樣式 */
+        h2 {
+            text-align: center;
+            font-size: 30pt; /* 設定標題大小 */
+            margin: 20px 0;
+            font-family: Arial, sans-serif; /* 標題使用 Arial 字體 */
+        }
+
+        .yoto, .quote {
+            text-align: center;
+            font-style: italic; /* 斜體字 */
+            margin-top: 13px;
+            font-family: Arial, sans-serif; /* 使用 Arial 字體 */
+        }
+
+        /* 按鈕容器 */
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* 按鈕樣式 */
+        .button {
+            background-color: #e3dfda; /* 按鈕背景顏色 */
+            color: rgb(0, 0, 0); /* 按鈕文字顏色 */
+            border: none;
+            border-radius: 25px; /* 圓角 */
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            text-decoration: none; /* 移除連結下劃線 */
+            text-align: center;
+            font-family: Arial, sans-serif; /* 按鈕文字使用 Arial 字體 */
+        }
+
+        .button:hover {
+            background-color: #8f8888; /* 滑鼠懸停顏色 */
+        }
+
+        /* 每個區塊 */
+        .section {
+            padding: 20px;
+            margin-top: 30px;
+            font-family: Arial, sans-serif; /* 內容文字使用 Arial 字體 */
+            color: black; /* 內容文字顏色設為黑色 */
+        }
+
+        /* 各個區塊的背景顏色 */
+        #about, #skills, #certifications, #clubs {
+            background-color: rgba(255, 255, 255, 0.7); /* 半透明白色背景 */
+            padding: 20px;
+        }
+
+        /* 設定大頭照圓形 */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* 圓形 */
+            margin-right: 20px; /* 圓形照片與右邊資訊的間距 */
+            border: 4px solid white; /* 加上白色邊框 */
+        }
+
+        /* 個人資訊區 */
+        .info {
+            color: black; /* 資訊文字顏色設為黑色 */
+            font-family: Arial, sans-serif; /* 資訊文字使用 Arial 字體 */
+        }
+
+        /* 社交媒體按鈕 */
+        .social-buttons {
+            margin-top: 15px;
+        }
+
+        .social-buttons a {
+            margin-right: 10px;
+            font-size: 30px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .social-buttons a:hover {
+            color: #007bff; /* 滑鼠懸停時變藍 */
+        }
+
+        /* 設置內容區的排版 */
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        /* 右邊內容區 */
+        .about-info {
+            flex-grow: 1;
+            font-family: Arial, sans-serif; /* 設置字體 */
+        }
+
+        /* 設置「關於我」區塊和「專業技能」區塊在同一排 */
+        .two-column-container {
+            display: flex;
+            justify-content: space-between; /* 使「關於我」和「專業技能」在同一排 */
+            gap: 20px;
+        }
+
+        /* 設置「專業技能」區塊 */
+        .skills-section {
+            flex: 1;
+            padding-left: 20px; /* 給「專業技能」區塊一點左邊距 */
+        }
+
+        /* 主標題 */
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #000;
+        }
+
+        /* 外層容器 */
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        
+
+        /* 技能項目容器 */
+        .skill-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            color: #5d4037;
+        }
+
+        .skill-name {
+           width: 150px; /* 增加寬度以便文字向右對齊 */
+           text-align: right; /* 將文字向右對齊 */
+        }
+
+
+        .progress-bar {
+            width: 200px;
+            height: 12px;
+            background-color: #ecda92;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        /* 進度的顏色 */
+        .progress {
+            height: 100%;
+            background-color: #d8d81b;
+            border-radius: 6px;
+        }
+
+        /* 兩組技能的樣式 */
+        .skills-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        /* 上方技能名稱列表，靠左對齊 */
+.skills-left {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.skills-left li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* 下方技能名稱和進度條，靠右對齊 */
+.skills-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.skill-text {
+    flex-basis: 40%; /* 右側技能名稱的寬度 */
+    text-align: right;
+    padding-right: 10px;
+}
+
+.progress-bar {
+    flex-basis: 60%; /* 右側進度條的寬度 */
+    height: 12px;
+    background-color: #ecda92;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #d8d81b;
+    border-radius: 6px;
+}
+
+        
+    
+           
+        
+        
+
+
+    </style>
+</head>
+<body>
+
+    <h2>Lun's website</h2>
+    <p class="yoto">吳英綸</p>
+    <p class="quote">「Do my best.」</p>
+
+    <!-- 水平排開的按鈕 -->
+    <div class="buttons">
+        <a href="#about" class="button">關於我</a>
+        <a href="#skills" class="button">專業技能</a>
+        <a href="#certifications" class="button">考取證照</a>
+        <a href="#clubs" class="button">社團參與</a>
+    </div>
+
+    <!-- "關於我" 和 "專業技能" 區塊放在同一排 -->
+    <div class="two-column-container">
+        <!-- "關於我"區塊 -->
+        <div id="about" class="section">
+            <h2>關於我</h2>
+            <div class="about-container">
+                <!-- 左邊圓形大頭照 -->
+                <div class="profile-pic">
+                    <img src="image/face.jpg" alt="Profile Picture" style="width: 100%; height: 100%; border-radius: 50%;" />
+                </div>
+
+                <!-- 右邊基本資訊 -->
+                <div class="about-info">
+                    <h3>Ying-Lun, Wu</h3>
+                    <p>生日:2005/06/02</p>
+                    <p>科系:Information Management</p>
+                    <p>wyl05940602@gmail.com</p>
+
+                    <!-- 社交媒體連結 -->
+                    <div class="social-buttons">
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="image/fb.jpg" alt="Facebook" style="width: 40px; height: 40px;" />
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="image/ig.png" alt="Instagram" style="width: 40px; height: 40px;" />
+                        </a>
+                        <a href="mailto:wyl05940602@gmail.com">
+                            <img src="image/mails.png" alt="Email" style="width: 40px; height: 40px;" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="skills" class="section skills-section" style="text-align: center;">
+            <h2>專業技能</h2>
+        
+            
+        
+            <!-- 下方靠右的技能名稱和進度條 -->
+            <div class="skills-right">
+                <div class="skill-item">
+                    <div class="skill-text">
+                        <span class="skill-name">物聯網&雲端技術</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-text">
+                        <span class="skill-name">電腦軟體應用</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-text">
+                        <span class="skill-name">會計資訊</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+        
+    </div>
+
+
+    
+
+    <!-- 其他區塊 -->
+    <div id="certifications" class="section">
+        <h2 style="text-align: center; font-size: 20pt;">考取證照</h2>
+        <div class="certificate">
+            <h3 style="text-align: center; font-size: 20pt;">中華民國電腦軟體應用乙級技術士</h3>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">利用課餘時間練習乙級的題目，包括Access、Excel、work等等，<br>由於乙級題目較難，最後總共考了兩次才通過。</p>
+            <img src="image/cp.png" alt="證書" width="300px" height="250px" style="display: block; margin: 0 auto;" />
+        </div>
+        <div class="certificate">
+            <h3 style="text-align: center; font-size: 20pt;">中華民國會計事務丙級技術士</h3>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">先是從頭打好會計基礎，並每天練習不同情形的分錄題型，<br>搭配電腦進行報表的輸入和輸出，皇天不復有心人，最終通過考試。</p>
+            <img src="image/ac.jpg" alt="證書" width="300px" height="250px" style="display: block; margin: 0 auto;" />
+        </div>
+        <div class="certificate">
+            <h3 style="text-align: center; font-size: 20pt;">雲端技術及網路服務專業級</h3>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">在準備這項證照時努力瞭解雲端的運行方式和應用層面，用三周內的時間完成這項測驗。</p>
+            <img src="image/st.png" alt="證書" width="300px" height="250px" style="display: block; margin: 0 auto;" />
+        </div>
+        <div class="certificate">
+            <h3 style="text-align: center; font-size: 20pt;">POWER POINT2016專業級</h3>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">這項對我而言也是較難的項目，原先對投影片的細項很不熟悉，但為了實現自己的目標而努力，幸運的拿到證照。</p>
+            <img src="image/PPT.png" alt="證書" width="300px" height="250px" style="display: block; margin: 0 auto;" />
+        </div>
+    </div>
+    
+    
+    <div id="clubs" class="section">
+        <h2 style="text-align: center; font-size: 20pt;">社團參與</h2>
+        <!-- Each activity has a title, description, and image -->
+        <div class="activity" style="text-align: center">
+            <h2 style="text-align: center; font-size: 20pt;">熱音社</h2>
+            <p style="font-style: italic;"> 「當然要在熱血沸騰的青春裡釋放澎湃活力」</p>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">自從大學加入熱音社之後就一直擔任KB手的位置，<br>高中雖然是主唱，但是在大學我想要突破自我專攻我本身就會的樂器<br>
+                也因為對音樂的熱愛而投入熱音社幹部的職位，希望自己可以越變越好。</p>
+            <img src="image/last.jpg" alt="熱音社活動" width="300px" height="250px">
+        </div>
+        <div class="activity" style="text-align: center">
+            <h2 style="text-align: center; font-size: 20pt;">宿營隊輔</h2>
+            <p style="font-style: italic;">「不要怕，學姊衝在前線保護你」</p>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">迎新宿營是我上了大學後的第一個大活動，在一次因緣際會下加入隊輔組的行列，<br>經過暑假兩個月的時間不畏風雨堅持做好自己的責任，
+                不斷的練習隊輔應該具備的能力，<br>在9月份成功帶領新生們參加活動，也從中學習到大群體的生活以及與人社交的能力。</p>
+            <img src="image/hand.jpg" alt="宿營隊輔活動" width="300px" height="250px">
+        </div>
+        <div class="activity" style="text-align: center">
+            <h2 style="text-align: center; font-size: 20pt;">系烤活動組</h2>
+            <p style="font-style: italic;"><b>「烤肉時除了美味的食物，還有活潑的吉祥物」</b></p>
+            <p style="text-align: center; font-size: 12pt; margin-bottom: 20px;">歷經宿營後的系上活動之一，在迎新宿營結束後我不間斷地投入這個活動當中，<br>
+                加入的是活動組，除了和宿營一樣是小隊輔外，<br>也額外抽出時間和同是活動組的同伴們一同練習舞蹈，同樣收穫滿滿
+                </p>
+            <img src="image/mini.jpg" alt="系烤活動 width="300px" height="250px">
+        </div>
+    </div>

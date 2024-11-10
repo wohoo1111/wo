@@ -1,0 +1,223 @@
+body {
+    background-image: url('ppl.jpg'); /* 替換為你的背景圖片路徑 */
+    background-size: cover; /* 背景圖片覆蓋整個頁面 */
+    background-position: center; /* 背景圖片居中 */
+    background-repeat: no-repeat; /* 不重複圖片 */
+    background-attachment: fixed; /* 背景固定，讓它不會隨滾動而移動 */
+    margin: 0;
+    font-family: Arial, sans-serif; /* 設定全頁字體為 Arial */
+    height: 100%; /* 確保頁面高度為100% */
+    color: white; /* 設定整體文字顏色為白色 */
+}
+
+/* 標題樣式 */
+h2 {
+    text-align: center;
+    font-size: 30pt; /* 設定標題大小 */
+    margin: 20px 0;
+    font-family: Arial, sans-serif; /* 標題使用 Arial 字體 */
+}
+
+.yoto, .quote {
+    text-align: center;
+    font-style: italic; /* 斜體字 */
+    margin-top: 13px;
+    font-family: Arial, sans-serif; /* 使用 Arial 字體 */
+}
+
+/* 按鈕容器 */
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 按鈕樣式 */
+.button {
+    background-color: #e3dfda; /* 按鈕背景顏色 */
+    color: rgb(0, 0, 0); /* 按鈕文字顏色 */
+    border: none;
+    border-radius: 25px; /* 圓角 */
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    text-decoration: none; /* 移除連結下劃線 */
+    text-align: center;
+    font-family: Arial, sans-serif; /* 按鈕文字使用 Arial 字體 */
+}
+
+.button:hover {
+    background-color: #8f8888; /* 滑鼠懸停顏色 */
+}
+
+/* 每個區塊 */
+.section {
+    padding: 20px;
+    margin-top: 30px;
+    font-family: Arial, sans-serif; /* 內容文字使用 Arial 字體 */
+    color: black; /* 內容文字顏色設為黑色 */
+}
+
+/* 各個區塊的背景顏色 */
+#about, #skills, #certifications, #clubs {
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明白色背景 */
+    padding: 20px;
+}
+
+/* 設定大頭照圓形 */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* 圓形 */
+    margin-right: 20px; /* 圓形照片與右邊資訊的間距 */
+    border: 4px solid white; /* 加上白色邊框 */
+}
+
+/* 個人資訊區 */
+.info {
+    color: black; /* 資訊文字顏色設為黑色 */
+    font-family: Arial, sans-serif; /* 資訊文字使用 Arial 字體 */
+}
+
+/* 社交媒體按鈕 */
+.social-buttons {
+    margin-top: 15px;
+}
+
+.social-buttons a {
+    margin-right: 10px;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+.social-buttons a:hover {
+    color: #007bff; /* 滑鼠懸停時變藍 */
+}
+
+/* 設置內容區的排版 */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 右邊內容區 */
+.about-info {
+    flex-grow: 1;
+    font-family: Arial, sans-serif; /* 設置字體 */
+}
+
+/* 設置「關於我」區塊和「專業技能」區塊在同一排 */
+.two-column-container {
+    display: flex;
+    justify-content: space-between; /* 使「關於我」和「專業技能」在同一排 */
+    gap: 20px;
+}
+
+/* 設置「專業技能」區塊 */
+.skills-section {
+    flex: 1;
+    padding-left: 20px; /* 給「專業技能」區塊一點左邊距 */
+}
+
+/* 主標題 */
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #000;
+}
+
+/* 外層容器 */
+.skills-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+
+
+/* 技能項目容器 */
+.skill-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #5d4037;
+}
+
+.skill-name {
+   width: 150px; /* 增加寬度以便文字向右對齊 */
+   text-align: right; /* 將文字向右對齊 */
+}
+
+
+.progress-bar {
+    width: 200px;
+    height: 12px;
+    background-color: #ecda92;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+/* 進度的顏色 */
+.progress {
+    height: 100%;
+    background-color: #d8d81b;
+    border-radius: 6px;
+}
+
+/* 兩組技能的樣式 */
+.skills-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* 上方技能名稱列表，靠左對齊 */
+.skills-left {
+text-align: left;
+list-style: none;
+padding: 0;
+margin-bottom: 20px;
+}
+
+.skills-left li {
+margin-bottom: 10px;
+font-size: 1.2em;
+}
+
+/* 下方技能名稱和進度條，靠右對齊 */
+.skills-right {
+text-align: right;
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.skill-item {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+.skill-text {
+flex-basis: 40%; /* 右側技能名稱的寬度 */
+text-align: right;
+padding-right: 10px;
+}
+
+.progress-bar {
+flex-basis: 60%; /* 右側進度條的寬度 */
+height: 12px;
+background-color: #ecda92;
+border-radius: 6px;
+overflow: hidden;
+}
+
+.progress {
+height: 100%;
+background-color: #d8d81b;
+border-radius: 6px;
+}
